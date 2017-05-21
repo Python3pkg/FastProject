@@ -6,7 +6,7 @@ HDT_Sig_batch has been augmented to calculate
 significance more quickly when running on many rows
 
 """
-from __future__ import absolute_import, print_function, division;
+;
 
 import numpy as np;
 from . import ProgressBar;

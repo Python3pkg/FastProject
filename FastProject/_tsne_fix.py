@@ -106,26 +106,26 @@ def _gradient_descent(objective, p0, it, n_iter, objective_error=None,
 
             if verbose >= 2:
                 m = "[t-SNE] Iteration %d: error = %.7f, gradient norm = %.7f"
-                print(m % (i + 1, error, grad_norm))
+                print((m % (i + 1, error, grad_norm)))
 
             if error < best_error:
                 best_error = error
                 best_iter = i
             elif i - best_iter > n_iter_without_progress:
                 if verbose >= 2:
-                    print("[t-SNE] Iteration %d: did not make any progress "
+                    print(("[t-SNE] Iteration %d: did not make any progress "
                           "during the last %d episodes. Finished."
-                          % (i + 1, n_iter_without_progress))
+                          % (i + 1, n_iter_without_progress)))
                 break
             if grad_norm <= min_grad_norm:
                 if verbose >= 2:
-                    print("[t-SNE] Iteration %d: gradient norm %f. Finished."
-                          % (i + 1, grad_norm))
+                    print(("[t-SNE] Iteration %d: gradient norm %f. Finished."
+                          % (i + 1, grad_norm)))
                 break
             if error_diff <= min_error_diff:
                 if verbose >= 2:
                     m = "[t-SNE] Iteration %d: error difference %f. Finished."
-                    print(m % (i + 1, error_diff))
+                    print((m % (i + 1, error_diff)))
                 break
 
         if new_error is not None:

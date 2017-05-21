@@ -9,7 +9,7 @@ import numpy as np;
 from .Global import get_viewer_resource_dir;
 
 if sys.version_info.major == 2:
-    STR_TYPES = (str,unicode)
+    STR_TYPES = (str,str)
 else:
     STR_TYPES = (str,)
 

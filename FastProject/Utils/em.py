@@ -7,7 +7,7 @@ distributions
 Derived from Nir Yosef's MATLAB code
 
 """
-from __future__ import absolute_import, print_function, division;
+;
 import numpy as np;
 from . import ProgressBar
 

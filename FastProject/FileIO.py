@@ -7,7 +7,7 @@ in another module
   For example: reading Signatures is handled in the Signatures module
 
 """
-from __future__ import absolute_import, print_function, division;
+;
 import os;
 import numpy as np;
 import shutil;
@@ -62,8 +62,8 @@ def read_matrix(filename='', delimiter = '\t'):
     """
 
     if(filename == ''):
-        from Tkinter import Tk
-        from tkFileDialog import askopenfilename
+        from tkinter import Tk
+        from tkinter.filedialog import askopenfilename
         Tk().withdraw();
         filename = askopenfilename();
     
@@ -164,8 +164,8 @@ def write_data(filename, data):
 def read_matrix_nolabels(filename = '', delimiter = '\t'):
     
     if(filename == ''):
-        from Tkinter import Tk
-        from tkFileDialog import askopenfilename
+        from tkinter import Tk
+        from tkinter.filedialog import askopenfilename
         Tk().withdraw();
         filename = askopenfilename();
 
@@ -576,7 +576,7 @@ def saveResultstoDisk(models, signatures, qc_info, dir_name):
 
     # Remove model["Data"] since only the expression data is written for JS
     #  and it's already written above in FP_ExpressionMatrix
-    for name, model in models.items():
+    for name, model in list(models.items()):
         model.pop("Data");
 
     fout_js.write(HtmlViewer.toJS_variable("FP_Models", models));

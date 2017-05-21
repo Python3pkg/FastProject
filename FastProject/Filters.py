@@ -6,7 +6,7 @@ of genes to a more manageable size - ideally extracting the
 genes that are more biologically informative.
 
 """
-from __future__ import absolute_import, print_function, division;
+;
 
 import numpy as np
 from . import Utils
@@ -55,7 +55,7 @@ def apply_filters(data, threshold, nofilter, lean):
         });
 
         if(not lean):
-            for name, method in _filter_methods.items():
+            for name, method in list(_filter_methods.items()):
                 FP_Output("Applying filter method:", name);
 
                 mask = method(data);

@@ -5,7 +5,7 @@ This module handles the generation of lower-dimensional
 projections from the higher-dimensional data objects
 
 """
-from __future__ import absolute_import, print_function, division;
+;
 from sklearn.decomposition import PCA
 from sklearn.decomposition import FastICA
 from sklearn.decomposition import KernelPCA

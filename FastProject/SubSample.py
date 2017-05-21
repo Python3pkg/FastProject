@@ -4,7 +4,7 @@
 This process is likely out of date - needs attention
 before re-enabling this feature.
 """
-from __future__ import absolute_import, print_function, division;
+;
 from .Utils import ProgressBar;
 from . import Signatures;
 from . import Projections;
@@ -101,7 +101,7 @@ def merge_samples(all_data, Models, sigs, prob_params, args):
 
     #Merge in projections
     #Re calculate clusters
-    for name, model in Models.items():
+    for name, model in list(Models.items()):
         sub_data = model["Data"];
         holdout_data = model["Holdout_Data"];
 
@@ -131,13 +131,13 @@ def merge_samples(all_data, Models, sigs, prob_params, args):
 
 
     #Some cleanup and fix the labels
-    for name, model in Models.items():
+    for name, model in list(Models.items()):
         model.pop("Holdout_Data");
         model["sampleLabels"] = model["Data"].col_labels;
 
 
     #Merge sig scores back in by re-calculating them
-    for name, model in Models.items():
+    for name, model in list(Models.items()):
         data = model["Data"];
 
         #Evaluate Signatures
@@ -181,7 +181,7 @@ def merge_projections(sub_projections, sub_data, holdout_data):
 
     all_projections = dict();
 
-    for key,p in sub_projections.items():
+    for key,p in list(sub_projections.items()):
         K=10;
         subsample_dist = cdist(holdout_data.T, sub_data.T, metric='euclidean');
         #subsample_dist shape is not_sub_data N_Samples x sub_data N_Samples

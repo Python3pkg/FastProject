@@ -5,7 +5,7 @@ Originally 'transform' referred to going from
     ExpressionData -> ProbabilityData
 
 """
-from __future__ import absolute_import, print_function, division;
+;
 
 
 from .Utils import em_exp_norm_mixture;

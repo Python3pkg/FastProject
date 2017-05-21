@@ -7,7 +7,7 @@ values are calculated.
 Determined using the command-line argument: --sig_norm_method
 
 """
-from __future__ import absolute_import, print_function, division;
+;
 import numpy as np;
 from scipy.stats import rankdata;
 

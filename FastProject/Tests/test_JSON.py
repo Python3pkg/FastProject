@@ -164,7 +164,7 @@ class TestJsonIO(unittest.TestCase):
         result = jsonIO.JSON_to_SignatureScores(json_str);
 
         self.assertIsInstance(result, dict);
-        self.assertIsInstance(result.values()[0], SignatureScores);
+        self.assertIsInstance(list(result.values())[0], SignatureScores);
 
         # Test second example string (for a factor precomputed sig)
         json_str = SAMPLE_PRECOMPUTED_SIGNATURE2_JSON;
@@ -172,4 +172,4 @@ class TestJsonIO(unittest.TestCase):
         result = jsonIO.JSON_to_SignatureScores(json_str);
 
         self.assertIsInstance(result, dict);
-        self.assertIsInstance(result.values()[0], SignatureScores);
+        self.assertIsInstance(list(result.values())[0], SignatureScores);

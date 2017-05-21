@@ -6,7 +6,7 @@ While this defines the types of processining and the
 order in which it is done, the goal should be to organize
 as much of that off into other modules.
 """
-from __future__ import division, print_function;
+;
 import numpy as np;
 import pandas as pd;
 import time;
@@ -137,7 +137,7 @@ def Analysis(expressionMatrix, signatures, precomputed_signatures, housekeeping_
 
         #If specified, remove items that did not pass qc check
         if(kwargs["qc"]):
-            for name, model in Models.items():
+            for name, model in list(Models.items()):
                 dataMatrix = model["Data"];
                 model["Data"] = dataMatrix.subset_samples(sample_passes_qc);
 
@@ -192,7 +192,7 @@ def Analysis(expressionMatrix, signatures, precomputed_signatures, housekeeping_
             new_sig = Signatures.Signature(new_sig_dict, True, 'x', "RANDOM_BG_" + str(size) + "_" + str(j));
             random_sigs.append(new_sig);
 
-    for name, model in Models.items():
+    for name, model in list(Models.items()):
 
         data = model["Data"];
 
@@ -333,7 +333,7 @@ def Analysis(expressionMatrix, signatures, precomputed_signatures, housekeeping_
             model["projectionData"].append(projData);
 
     #Filter output signatures
-    for name, model in Models.items():
+    for name, model in list(Models.items()):
         signatureScores = model["signatureScores"];
 
         signature_significance = pd.DataFrame();
@@ -363,7 +363,7 @@ def Analysis(expressionMatrix, signatures, precomputed_signatures, housekeeping_
         #Iterate back through and prune signatures worse than threshold
         #Create a dictionary of sigs to keep
         keep_sig = dict();
-        for name, sig_score in signatureScores.items():
+        for name, sig_score in list(signatureScores.items()):
             if(not sig_score.isPrecomputed and signature_significance[name] > threshold):
                 keep_sig.update({name: False});
             else:
@@ -371,7 +371,7 @@ def Analysis(expressionMatrix, signatures, precomputed_signatures, housekeeping_
 
         #Remove values in the model's signatureScores dict
         new_signatureScores = {}
-        for name, sig_score in signatureScores.items():
+        for name, sig_score in list(signatureScores.items()):
             if(keep_sig[name] == True):
                 new_signatureScores[name] = sig_score
 

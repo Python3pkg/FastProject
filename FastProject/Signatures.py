@@ -6,7 +6,7 @@ Also, the sigs_vs_projections method is here
    Projections so I just picked one)
 
 """
-from __future__ import absolute_import, print_function, division;
+;
 
 import numpy as np;
 from sklearn.metrics.pairwise import pairwise_distances;
@@ -34,8 +34,8 @@ def read_signatures(filename='', match_terms=[]):
     """
 
     if(filename == ''):
-        from Tkinter import Tk
-        from tkFileDialog import askopenfilename
+        from tkinter import Tk
+        from tkinter.filedialog import askopenfilename
         Tk().withdraw();
         filename = askopenfilename();
 
@@ -65,8 +65,8 @@ def read_signatures_txt(filename='', match_terms=[]):
     """
     
     if(filename == ''):
-        from Tkinter import Tk
-        from tkFileDialog import askopenfilename
+        from tkinter import Tk
+        from tkinter.filedialog import askopenfilename
         Tk().withdraw();
         filename = askopenfilename();
     
@@ -197,8 +197,8 @@ def read_signatures_gmt(filename='', match_terms=[]):
         return name[0:ii], sign;
 
     if(filename == ''):
-        from Tkinter import Tk
-        from tkFileDialog import askopenfilename
+        from tkinter import Tk
+        from tkinter.filedialog import askopenfilename
         Tk().withdraw();
         filename = askopenfilename();
 
@@ -316,7 +316,7 @@ def sigs_vs_projections(projections, sig_scores_dict, random_sig_scores_dict, NE
     sp_row_labels_pnum = [];
 
     #Remove signatures that are factor signatures and precomputed-numerical signatures
-    for name, sig_scores in sig_scores_dict.items():
+    for name, sig_scores in list(sig_scores_dict.items()):
         if(sig_scores.isPrecomputed):
             if(sig_scores.isFactor):
                 sp_row_labels_factors.append(name);
@@ -412,7 +412,7 @@ def sigs_vs_projections(projections, sig_scores_dict, random_sig_scores_dict, NE
             backgrounds[numGenes].append(random_med_dissimilarity[k]);
 
         bg_stat = np.zeros((len(backgrounds), 3));
-        for k, numGenes in enumerate(backgrounds.keys()):
+        for k, numGenes in enumerate(list(backgrounds.keys())):
             mu_x = np.mean(backgrounds[numGenes]);
             std_x = np.std(backgrounds[numGenes]);
             bg_stat[k, 0] = numGenes;

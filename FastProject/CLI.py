@@ -9,7 +9,7 @@
 Then launches the main pipeline
 """
 
-from __future__ import absolute_import, print_function, division;
+;
 import argparse;
 import os
 import logging;
